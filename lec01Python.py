@@ -32,5 +32,10 @@ class Point:
             raise TypeError("Other must be a Point instance or a number (int or float)")
 
 
-    def multiply(self, other):
+    def multiply(self, scalar):
+        if isinstance(scalar,(int,float)):
+            return Point(self.x * scalar, self.y * scalar)
+        else:
+            raise TypeError("scalar must be a number (int or float)")
+         
         
