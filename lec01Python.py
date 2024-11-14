@@ -38,4 +38,18 @@ class Point:
         else:
             raise TypeError("scalar must be a number (int or float)")
          
-        
+    
+    def __getitem__(self, key): # By implementing __getitem__ in a class, you allow instances of that class to support indexing and key access (like a list or dictionary). When you write my_object[key], Python automatically calls my_object.__getitem__(key).
+        if key == 0 or key == 'x':
+            return self.x
+        elif key == 1 or key == 'y':
+            return self.y
+        else:
+            raise KeyError("Key must be 0, 1, 'x', or 'y'")
+
+
+    def __iter__(self): # iter is a special method that defines a class as iterable. When we implement it, objects of the class becomes iterables. 
+
+        # A reserved word used to return values in sequence, one after another, without ending the function’s execution. It allows the creation of generator functions that return values in a loop, enabling us to yield values from the function each time it is called.
+        yield self.x  # תחזיר את x
+        yield self.y  # ואז את y
